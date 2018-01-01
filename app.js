@@ -42,6 +42,9 @@ app.post('/newTask', (req, res) => {
   }
 })
 
+/**
+ * Updating task using PUT operation
+ */
 app.put('/updateTask', (req, res) => {
   try {
     mongo.connect(function(db){
@@ -62,7 +65,7 @@ app.put('/updateTask', (req, res) => {
 })
 
 /**
- * Fetching all the tasks using GET
+ * Fetching all the tasks using GET operation
  */
 
 app.get('/tasks', (req, res) => {
@@ -80,6 +83,27 @@ try {
 } catch (e) {
   throw new Error(e);
 }
+})
+
+/**
+ * Deleting the task using DELETE operation
+ */
+
+app.delete('/removeTask', (req, res) => {
+  try {
+    mongo.connect(function(db){
+    console.log("Connected to MongoDB for GET request.");
+    var coll = mongo.collection('todos');
+    coll.remove({'Task': req.body.Task}, function(err, doc){
+      if(err){
+        console.log(err);
+      }
+      res.status(200).send(`Selected task deleted.`);
+    });
+    });
+  } catch (e) {
+    throw new Error(e);
+  }
 })
 
 app.listen(3000, () => {
