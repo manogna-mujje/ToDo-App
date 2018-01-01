@@ -92,7 +92,7 @@ try {
 app.delete('/removeTask', (req, res) => {
   try {
     mongo.connect(function(db){
-    console.log("Connected to MongoDB for GET request.");
+    console.log("Connected to MongoDB for DELETE request.");
     var coll = mongo.collection('todos');
     coll.remove({'Task': req.body.Task}, function(err, doc){
       if(err){
