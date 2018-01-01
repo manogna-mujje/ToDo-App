@@ -17,6 +17,7 @@ app.get('/ping', (req, res) => {
 
 app.post('/newTask', (req, res) => {
   try {
+    console.log("Connected to MongoDB for POST request.");
     mongo.connect(function(db){
       var coll = mongo.collection('todos');
       coll.update(
@@ -44,7 +45,7 @@ app.post('/newTask', (req, res) => {
 app.put('/updateTask', (req, res) => {
   try {
     mongo.connect(function(db){
-      console.log("PUTConnected to MongoDB");
+      console.log("Connected to MongoDB for PUT request.");
       var coll = mongo.collection('todos');
       coll.updateOne(
         { Task: req.body.Task },
@@ -67,6 +68,7 @@ app.put('/updateTask', (req, res) => {
 app.get('/tasks', (req, res) => {
 try {
   mongo.connect(function(db){
+    console.log("Connected to MongoDB for GET request.");
     var coll = mongo.collection('todos');
     coll.find().toArray(function (err, docs){
       if(err){
