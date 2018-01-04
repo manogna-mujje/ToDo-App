@@ -84,7 +84,6 @@ app.put('/updateTask', (req, res) => {
  */
 
 app.get('/tasks', (req, res) => {
-
 try {
   mongo.connect(function(db){
     console.log("Connected to MongoDB for GET request.");
