@@ -1,0 +1,16 @@
+body {
+    background-color: lightblue;
+}
+
+div.TaskDetails p {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 16px;
+    color: red;
+}
+
+div.PageTitle h1 {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 30px;
+  text-align: center;
+  color: black;
+}
