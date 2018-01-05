@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>Today's To-Dos</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <% include ../partials/head %>
   </head>
   <body>
     <script src="./node_modules/jquery/dist/jquery.min.js"> </script>
@@ -13,7 +11,11 @@
       });
      </script>
 
-     <div class = "PageTitle"> <h1> Today's To-Dos </h1> </div>
+     <div class = "PageTitle">
+       <header>
+         <% include ../partials/header %>
+       </header>
+    </div>
 
      <div class = "TaskDetails">
        <% for (var i = 0; i < length; i++){ %>
@@ -25,7 +27,7 @@
      </div>
 
     <footer>
-      <p>Copyright 2018</p>
+      <% include ../partials/footer %>
     </footer>
   </body>
 </html>
